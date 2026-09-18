@@ -29,7 +29,7 @@
     const i = new Image();
     i.onload = () => { if (++loaded === Object.keys(paths).length) loading.classList.add("hidden"); };
     i.onerror = () => { if (++loaded === Object.keys(paths).length) loading.classList.add("hidden"); };
-    i.src = paths[k] + "?v=demo5";
+    i.src = paths[k] + "?v=demo5b";
     imgs[k] = i;
   });
 
@@ -162,13 +162,13 @@
       w: 2600,
       spawn: { x: 90, y: FLOOR - STAND.h },
       solids: [
-        { x: 0, y: FLOOR, w: 520, h: 120 },
-        { x: 620, y: 560, w: 180, h: 40 },
-        { x: 880, y: 480, w: 160, h: 40 },
-        { x: 1120, y: 560, w: 220, h: 40 },
+        { x: 0, y: FLOOR, w: 560, h: 120 },
+        { x: 640, y: 560, w: 200, h: 40 },
+        { x: 900, y: 500, w: 180, h: 40 },
+        { x: 1140, y: 560, w: 240, h: 40 },
         { x: 1420, y: FLOOR, w: 1180, h: 120 },
       ],
-      spikes: [{ x: 520, y: 600, w: 90, h: 20 }],
+      spikes: [{ x: 560, y: 600, w: 70, h: 20 }],
       shutters: [{ id: "k1", x: 1680, y: 572, w: 90, h: 48 }],
       lasers: [],
       plates: [],
@@ -194,10 +194,11 @@
       spikes: [],
       shutters: [],
       lasers: [
-        { id: "Lw", x: 420, y: 500, w: 16, h: 120, bypass: "none", mode: "solid", sign: "DASH YETMEZ" },
-        { id: "L1", x: 720, y: 576, w: 220, h: 44, bypass: "crouch", mode: "solid" },
-        { id: "L2", x: 1100, y: 576, w: 220, h: 44, bypass: "crouch", mode: "blink", on: 1, off: 0.8, phase: 0 },
-        { id: "L3", x: 1480, y: 576, w: 220, h: 44, bypass: "crouch", mode: "blink", on: 0.7, off: 0.7, phase: 0.35 },
+        // Tall wall: stand/dash die; crouch slips under (bottom at 570, crouch top ~576)
+        { id: "Lw", x: 420, y: 480, w: 18, h: 90, bypass: "none", mode: "solid", sign: "DASH YETMEZ · S" },
+        { id: "L1", x: 680, y: 576, w: 200, h: 44, bypass: "crouch", mode: "solid" },
+        { id: "L2", x: 1020, y: 576, w: 200, h: 44, bypass: "crouch", mode: "blink", on: 1.1, off: 0.9, phase: 0 },
+        { id: "L3", x: 1360, y: 576, w: 200, h: 44, bypass: "crouch", mode: "blink", on: 0.85, off: 0.85, phase: 0.4 },
       ],
       plates: [],
       drones: [],
@@ -205,7 +206,7 @@
       exits: [],
       memories: [],
       signs: [],
-      sayOnEnter: "Bu bir çıkış değil — önce lazer. Eğil.",
+      sayOnEnter: "DASH yetmez. S ile eğil, altından geç.",
     },
     fake: {
       tag: "SERVİS · sahte EXIT",
