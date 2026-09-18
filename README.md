@@ -1,36 +1,23 @@
 # Neon Dash — Playable Slice
 
-Kısa neon cyber side-scrolling platformer dilimi. Beğenirsen üzerine seviye / asset ekleriz.
+Kısa neon cyber side-scroller. Arka plan onaylı HD sahne; karakterde idle / koşu / zıplama / eğilme animasyonu.
 
-## Nasıl açılır
+## Oyna
 
-1. Bu repoyu klonla veya `index.html` dosyasını indir.
-2. `index.html` dosyasını tarayıcıda aç **veya**:
-
-```bash
-npx --yes serve .
-```
-
-Sonra verilen local URL’yi aç.
+- Live: https://mirkul34.github.io/neon-dash/
+- veya `index.html` aç / `npx serve .`
 
 ## Kontroller
 
 | Tuş | Aksiyon |
 |-----|---------|
-| A / D veya ← → | Hareket |
-| Space / W / ↑ | Zıpla |
-| Shift veya J | Dash |
-| Enter / tıkla | Başla / tekrar |
-| R | Hard reset |
+| A / D | Hareket |
+| Space / W | Zıpla |
+| S / ↓ | Eğil |
+| Shift / J | Dash |
+| Enter | Başla / tekrar |
+| R | Reset |
 
 ## Hedef
 
-Sağdaki **EXIT** portalına ulaş. Magenta coin’leri topla, drone’lardan ve spike’lardan kaç.
-
-## Kasıtlı olarak yok
-
-Çok seviyeli kampanya, envanter, mobil touch, online skor — bu sadece hissiyat testi.
-
-## Sanat
-
-Pürüzsüz HD 2D neon cyber (cyan `#00E5FF` + magenta `#FF2E9F`). Canvas ile çizildi; chunky pixel yok.
+EXIT portalına ulaş, magenta orb’ları topla, drone ve spike’lardan kaç.
