@@ -29,6 +29,7 @@
     run3: load("assets/hero-run3.png"),
     jump: load("assets/hero-jump.png"),
     crouch: load("assets/hero-crouch.png"),
+    titleSplash: load("assets/title-splash.jpg"),
   };
   function load(src) {
     const i = new Image();
@@ -382,7 +383,13 @@
 
   function drawOverlay() {
     if (state.mode === "title") {
-      ctx.fillStyle = "rgba(5,5,18,0.72)";
+      const splash = imgs.titleSplash;
+      if (splash && splash.complete && splash.naturalWidth) {
+        const scale = Math.max(W / splash.naturalWidth, H / splash.naturalHeight);
+        const dw = splash.naturalWidth * scale, dh = splash.naturalHeight * scale;
+        ctx.drawImage(splash, (W - dw) / 2, (H - dh) / 2, dw, dh);
+      }
+      ctx.fillStyle = "rgba(5,5,18,0.55)";
       ctx.fillRect(0, 0, W, H);
       ctx.textAlign = "center";
       ctx.shadowColor = "#00e5ff";
