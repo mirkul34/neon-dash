@@ -22,20 +22,34 @@
   });
 
   const imgs = {
-    bg: load("assets/bg-city.jpg"),
-    idle: load("assets/hero-idle.png"),
-    run1: load("assets/hero-run1.png"),
-    run2: load("assets/hero-run2.png"),
-    run3: load("assets/hero-run3.png"),
-    jump: load("assets/hero-jump.png"),
-    crouch: load("assets/hero-crouch.png"),
-    titleSplash: load("assets/title-splash.jpg"),
+    bg: load("assets/bg-city.jpg?v=1789753986"),
+    idle: load("assets/hero-idle.png?v=1789753986"),
+    run1: load("assets/hero-run1.png?v=1789753986"),
+    run2: load("assets/hero-run2.png?v=1789753986"),
+    run3: load("assets/hero-run3.png?v=1789753986"),
+    jump: load("assets/hero-jump.png?v=1789753986"),
+    crouch: load("assets/hero-crouch.png?v=1789753986"),
+    titleSplash: load("assets/title-splash.jpg?v=1789753986"),
   };
   function load(src) {
     const i = new Image();
     i.src = src;
     return i;
   }
+
+  const assetList = Object.values(imgs);
+  let assetsReady = false;
+  function checkAssets() {
+    assetsReady = assetList.every((im) => im.complete && im.naturalWidth > 0);
+    const el = document.getElementById("loading");
+    if (assetsReady && el) el.classList.add("hidden");
+    return assetsReady;
+  }
+  assetList.forEach((im) => {
+    if (im.complete) checkAssets();
+    else { im.onload = checkAssets; im.onerror = () => console.error("asset fail", im.src); }
+  });
+
 
   const level = {
     spawn: { x: 90, y: 500 },
@@ -89,6 +103,7 @@
   }
 
   function startPlay() {
+    if (!checkAssets()) return;
     state.mode = "play";
     state.playTime = 0;
     state.coins = 0;
@@ -438,6 +453,7 @@
   function frame(now) {
     const dt = Math.min(0.033, (now - last) / 1000);
     last = now;
+    checkAssets();
     update(dt);
     drawBackground();
     drawWorld();

@@ -33,3 +33,10 @@ html, body {
 }
 #coins { color: #ff2e9f; font-size: 18px; }
 #hint { color: #00e5ff99; font-size: 13px; }
+
+#loading {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  background: #050512ee; color: #00e5ff; font: 600 18px system-ui, sans-serif;
+  letter-spacing: 0.04em; z-index: 5;
+}
+#loading.hidden { display: none; }
